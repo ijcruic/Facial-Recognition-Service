@@ -1,0 +1,14 @@
+numpy
+scipy
+pandas
+torch
+transformers
+tqdm
+scikit-learn
+ipykernel
+notebook
+pillow
+sentencepiece
+protobuf
+albumentations
+facenet_pytorch

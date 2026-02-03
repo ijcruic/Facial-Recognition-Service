@@ -1,0 +1,16 @@
+matomo_site_id: 145
+matomo_url: "https://matomo.tools.gap.ic.gov/matomo.php"
+matomo_ssl_verify: False
+
+embedding_model_weights_path: "/service/model_weights/representation/20180402-114759-facenet.pt"
+embedding_model_device: "cuda:0"
+
+recognition_model_weights_path: "/service/model_weights/recognition_at_face"
+recognition_model_device: "cuda:0"
+
+#OpenSearch Settings
+cluster_url: "https://opensearch-node1:9200"
+face_vector_index_name: "skai_facial_rec"
+telemetry_index_name: "skai_facial_rec_telemetry"
+username: "admin"
+password: "admin"
