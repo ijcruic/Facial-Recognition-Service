@@ -1,0 +1,39 @@
+# dotenv
+.env
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache
+
+# Distribution / packaging
+build/
+*.egg-info/
+
+# virtualenv
+.venv
+venv/
+ENV/
+
+# ignore cache, model checkpoints and tokenizer
+xdg_cache/pip
+xdg_cache/matplotlib
+xdg_cache/huggingface/hub/.locks
+xdg_cache/huggingface/modules/transformers_modules/microsoft/
+
+# ignore benchmark datasets since they are huge
+ijb/
+lfw-deepfunneled/
+CASIA-maxpy-clean/
+CelebA/
+CASIA/
+cfp-dataset/
+CFP_dataset/
+VGGFace2_train/
+VGGFace2_val/
+VGGFace2/
+
+
+# ignore testing artifacts
+logs/
