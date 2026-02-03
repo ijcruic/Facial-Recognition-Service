@@ -1,0 +1,39 @@
+datasets:
+  # List any number of train directories here (ContrastiveImageDataset will be applied to each).
+  # NNI/your script will iterate through each path and concatenate them.
+  train_dirs:
+    - "../data/lfw-deepfunneled"
+    - "../data/CelebA"
+    # - "../data/CASIA-maxpy-clean"    # <-- you can add more if desired
+
+  # Exactly one test directory for evaluation (AlbumentationsImageDataset).
+  test_dir: "../data/CFP_dataset"
+
+pretrained:
+  weights_path: "../models_weights/representation/20180402-114759-facenet.pt"
+
+dataloader:
+  num_workers: 2
+
+scheduler:
+  eta_min: 1e-9
+
+logging:
+  log_dir_prefix: "logs/"
+
+hyperparameters:
+  batch_size: 256
+  learning_rate: 0.0003
+  num_epochs: 20
+  first_stage_epochs: "num_epochs"
+  weight_decay: 1e-5
+  temperature: 0.07
+  miner_pos_strategy: "hard"
+  miner_neg_strategy: "semihard"
+  miner_allowed_pos_low: 0.5
+  miner_allowed_pos_high: 1.0
+  miner_allowed_neg_low: 0.0
+  miner_allowed_neg_high: 0.5
+  miner_distance: "cosine"
+
+  memory_size: 4096

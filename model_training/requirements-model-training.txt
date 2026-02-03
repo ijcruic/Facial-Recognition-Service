@@ -1,0 +1,10 @@
+torch
+torchvision
+albumentations==2.0.2
+tqdm
+numpy
+tensorboard
+pytorch-metric-learning
+faiss-cpu
+clip
+nni

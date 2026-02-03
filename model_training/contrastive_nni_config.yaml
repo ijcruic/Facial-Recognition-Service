@@ -1,0 +1,57 @@
+experiment_name: facenet-contrastive-train-nni
+
+trial_command: python3 contrastive_train_representation_model.py
+trial_code_directory: .
+
+trial_concurrency: 2
+max_trial_number: 50
+
+search_space:
+  temperature:
+    _type: loguniform
+    _value: [0.001, 0.9]
+  learning_rate:
+    _type: loguniform
+    _value: [0.00001, 0.1]
+  batch_size:
+    _type: choice
+    _value: [128, 256, 512, 1024]
+  weight_decay:
+    _type: loguniform
+    _value: [0.000001, 0.001]
+  first_stage_epochs:
+    _type: choice
+    _value: [20, "num_epochs"]
+  miner_pos_strategy:
+    _type: choice
+    _value: ["easy", "hard", "all"]
+  miner_neg_strategy:
+    _type: choice
+    _value: ["easy", "hard", "semihard", "all"]
+  miner_allowed_pos_low:
+    _type: uniform
+    _value: [0.3, 0.8]
+  miner_allowed_pos_high:
+    _type: uniform
+    _value: [0.8, 1.0]
+  miner_allowed_neg_low:
+    _type: uniform
+    _value: [0.0, 0.3]
+  miner_allowed_neg_high:
+    _type: uniform
+    _value: [0.3, 0.8]
+  miner_distance:
+    _type: choice
+    _value: ["cosine", "euclidean"]
+  memory_size:
+    _type: choice
+    _value: [2048, 4096, 8192]
+
+
+tuner:
+  name: TPE
+  class_args:
+    optimize_mode: maximize
+
+training_service:
+  platform: local
